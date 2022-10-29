@@ -1,5 +1,8 @@
 # Backend
 
+## API 사용 가이드
+The app defines following CRUD APIs.
+
 ## Code Convention
 #### Naming
 변수명, 클래스명, 메서드명 -> 영어와 숫자만.
