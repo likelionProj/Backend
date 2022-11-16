@@ -6,10 +6,12 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Setter @Getter
+@Setter
+@Getter
 public class University {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "univ_id")
     private Long id;
 
@@ -18,4 +20,6 @@ public class University {
     @OneToOne(mappedBy = "University")
     private LocationId locationId;
 
+    @OneToOne(mappedBy = "university", fetch = FetchType.LAZY)
+    private Member member;
 }

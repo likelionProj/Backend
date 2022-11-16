@@ -9,17 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 public class Cafe {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "cafe_id")
     private int id;
 
     @OneToOne(mappedBy = "cafe")
     private LocationId locationID;
 
-//    private MoodStatus moodStatuses;
+    //    private MoodStatus moodStatuses;
     // https://prohannah.tistory.com/133
     // 임베디드 타입을 바꿔야할거같기도하고
     @ElementCollection
@@ -41,6 +43,10 @@ public class Cafe {
 
     private Boolean studyCafe;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
-
+    @OneToOne(mappedBy = "cafe", fetch = FetchType.LAZY)
+    private Reservation reservation;
 }
