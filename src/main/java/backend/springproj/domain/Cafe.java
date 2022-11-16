@@ -13,13 +13,15 @@ import java.util.List;
 @Setter
 public class Cafe {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cafe_id")
-    private int id;
+    private Long id;
 
-    @OneToOne(mappedBy = "cafe")
-    private LocationId locationID;
+    private String name;
+
+    // embedded type
+    @Embedded
+    private Location location;
 
     //    private MoodStatus moodStatuses;
     // https://prohannah.tistory.com/133

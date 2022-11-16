@@ -15,10 +15,10 @@ public class University {
     @Column(name = "univ_id")
     private Long id;
 
-    String Name;
+    String name;
 
-    @OneToOne(mappedBy = "University")
-    private LocationId locationId;
+    @Embedded
+    private Location location;
 
     @OneToOne(mappedBy = "university", fetch = FetchType.LAZY)
     private Member member;
