@@ -6,16 +6,18 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Setter @Getter
-public class University {
+@Getter @Setter
+public class LocationId {
 
     @Id @GeneratedValue
-    @Column(name = "univ_id")
     private Long id;
 
-    String Name;
+    // 학교 이름
+    private String name;
 
-    @OneToOne(mappedBy = "University")
-    private LocationId locationId;
+    // 위도
+    private int lat;
 
+    // 경도
+    private int lon;
 }
