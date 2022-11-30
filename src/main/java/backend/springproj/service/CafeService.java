@@ -50,6 +50,10 @@ public class CafeService {
         return cafeRepository.findAll();
     }
 
+    public List<Cafe> findCafeList(String name) {
+        return cafeRepository.findByName(name);
+    }
+
     public Cafe findOne(Long cafeId){
         return cafeRepository.findOne(cafeId);
     }

@@ -33,4 +33,10 @@ public class CafeRepository {
                 .setParameter("name", name)
                 .getResultList();
     }
+
+    // moodStatus를 이용해서 값을 가져와야함
+//    public List<Cafe> findByMood(Cafe cafe) {
+//        return em.createQuery()
+//    }
+
 }

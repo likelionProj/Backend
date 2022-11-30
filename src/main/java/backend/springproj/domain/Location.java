@@ -5,11 +5,13 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+//@Embeddable
 @Entity
 @Getter @Setter
 public class Location {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "location_id")
     private Long id;
 
@@ -24,7 +26,18 @@ public class Location {
 
     @OneToOne(mappedBy = "location", fetch = FetchType.LAZY)
     private University university;
+    protected Location(){
+    }
 
     @OneToOne(mappedBy = "cafeLocation", fetch = FetchType.LAZY)
     private Cafe cafe;
+
+    public Location(Long id, String name, int lat, int lon) {
+
+        this.id = id;
+        this.name = name;
+        this.lat = lat;
+        this.lon = lon;
+    }
+
 }
