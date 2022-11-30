@@ -15,6 +15,8 @@ public class Cafe {
     @Column(name = "cafe_id")
     private Long id;
 
+    private String name;
+
     @OneToOne
     @JoinColumn(name = "location_id")
     private Location cafeLocation;
