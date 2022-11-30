@@ -12,12 +12,13 @@ public class University {
 
     @Id
     @GeneratedValue
-    @Column(name = "univ_id")
+    @Column(name = "university_id")
     private Long id;
 
     String name;
 
-    @Embedded
+    @OneToOne
+    @JoinColumn(name = "location_id")
     private Location location;
 
     @OneToOne(mappedBy = "university", fetch = FetchType.LAZY)

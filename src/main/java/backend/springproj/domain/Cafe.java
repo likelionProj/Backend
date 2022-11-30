@@ -5,8 +5,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
@@ -17,17 +15,12 @@ public class Cafe {
     @Column(name = "cafe_id")
     private Long id;
 
-    private String name;
+    @OneToOne
+    @JoinColumn(name = "location_id")
+    private Location cafeLocation;
 
-    // embedded type
-    @Embedded
-    private Location location;
-
-    //    private MoodStatus moodStatuses;
-    // https://prohannah.tistory.com/133
-    // 임베디드 타입을 바꿔야할거같기도하고
-    @ElementCollection
-    private ArrayList<MoodStatus> moodStatus;
+    @Enumerated(EnumType.STRING)
+    private MoodStatus moodStatus;
 
     private int noise;
 

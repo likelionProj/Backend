@@ -17,12 +17,14 @@ public class Member {
     @Id
     @GeneratedValue
     @Column(name = "member_id")
-    private Long member_id;
+    private Long id;
+
+    private String name;
 
     private String password;
 
     @OneToOne(fetch = LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "univ_id")
+    @JoinColumn(name = "university_id")
     private University university;
 
     private Grade grade;

@@ -5,26 +5,26 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Embeddable
+@Entity
 @Getter @Setter
 public class Location {
 
+    @Id @GeneratedValue
+    @Column(name = "location_id")
     private Long id;
+
     // 학교 이름
     private String name;
+
     // 위도
     private int lat;
+
     // 경도
     private int lon;
 
-    protected Location(){
-    }
+    @OneToOne(mappedBy = "location", fetch = FetchType.LAZY)
+    private University university;
 
-    public Location(Long id, String name, int lat, int lon){
-        this.id = id;
-        this.name = name;
-        this.lat = lat;
-        this.lon = lon;
-    }
-
+    @OneToOne(mappedBy = "cafeLocation", fetch = FetchType.LAZY)
+    private Cafe cafe;
 }
