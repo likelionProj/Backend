@@ -12,13 +12,14 @@ public class University {
 
     @Id
     @GeneratedValue
-    @Column(name = "univ_id")
+    @Column(name = "university_id")
     private Long id;
 
     String Name;
 
-    @OneToOne(mappedBy = "University")
-    private LocationId locationId;
+    @OneToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
 
     @OneToOne(mappedBy = "university", fetch = FetchType.LAZY)
     private Member member;
