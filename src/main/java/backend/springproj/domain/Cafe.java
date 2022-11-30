@@ -11,10 +11,9 @@ import java.time.LocalDateTime;
 @Setter
 public class Cafe {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cafe_id")
-    private int id;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "location_id")

@@ -15,7 +15,7 @@ public class University {
     @Column(name = "university_id")
     private Long id;
 
-    String Name;
+    String name;
 
     @OneToOne
     @JoinColumn(name = "location_id")
