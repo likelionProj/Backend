@@ -46,15 +46,15 @@ public class CafeService {
     /*
      * 전체 카페 조회
      */
-    public List<Cafe> findCafe(){
+    public List<Cafe> findCafeList(){
         return cafeRepository.findAll();
     }
 
-    public List<Cafe> findCafeList(String name) {
+    public List<Cafe> findCafeName(String name) {
         return cafeRepository.findByName(name);
     }
 
-    public Cafe findOne(Long cafeId){
+    public Cafe findCafe(Long cafeId){
         return cafeRepository.findOne(cafeId);
     }
 }

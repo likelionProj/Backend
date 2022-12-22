@@ -18,28 +18,9 @@ public class Cafe {
 
     private String name;
 
-    @OneToOne
-    @JoinColumn(name = "location_id")
-    private Location cafeLocation;
+    @Embedded
+    private Location location;
 
-<<<<<<< HEAD
-=======
-    // embedded type
-//    @Embedded
-//    private Location location;
-
-    @OneToOne
-    @JoinColumn(name = "location_id")
-    private Location cafeLocation;
-    //    private MoodStatus moodStatuses;
-    // https://prohannah.tistory.com/133
-    // 임베디드 타입을 바꿔야할거같기도하
-//    private ArrayList<MoodStatus> moodStatus;
-//    @ElementCollection
-//    private List<String> moodStatus = new ArrayList<>();
-
-
->>>>>>> c9afede (66l)
     @Enumerated(EnumType.STRING)
     private MoodStatus moodStatus;
 
@@ -64,6 +45,5 @@ public class Cafe {
     private Member member;
 
     @OneToOne(mappedBy = "cafe", fetch = FetchType.LAZY)
-//    @Resource(name = "reservations")
     private Reservation reservation;
 }

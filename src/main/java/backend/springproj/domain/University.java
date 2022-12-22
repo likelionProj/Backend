@@ -17,8 +17,7 @@ public class University {
 
     String name;
 
-    @OneToOne
-    @JoinColumn(name = "location_id")
+    @Embedded
     private Location location;
 
     @OneToOne(mappedBy = "university", fetch = FetchType.LAZY)

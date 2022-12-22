@@ -5,37 +5,21 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-//@Embeddable
-@Entity
-@Getter @Setter
+@Embeddable
+@Getter
 public class Location {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "location_id")
-    private Long id;
-
-    // 학교 이름
-    private String name;
-
     // 위도
-    private int lat;
+    private double lat;
 
     // 경도
-    private int lon;
+    private double lon;
 
-    @OneToOne(mappedBy = "location", fetch = FetchType.LAZY)
-    private University university;
-    protected Location(){
+    protected Location() {
+
     }
 
-    @OneToOne(mappedBy = "cafeLocation", fetch = FetchType.LAZY)
-    private Cafe cafe;
-
-    public Location(Long id, String name, int lat, int lon) {
-
-        this.id = id;
-        this.name = name;
+    public Location(String name, double lat, double lon) {
         this.lat = lat;
         this.lon = lon;
     }

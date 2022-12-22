@@ -1,10 +1,6 @@
 spring:
   datasource:
-<<<<<<< HEAD
     url: jdbc:h2:tcp://localhost/~/backendproj
-=======
-    url: jdbc:h2:tcp://localhost/~/spring-proj
->>>>>>> c9afede (66l)
     username: sa
     password:
     driver-class-name: org.h2.Driver
