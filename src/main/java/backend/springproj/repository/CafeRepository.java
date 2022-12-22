@@ -9,11 +9,10 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-@RequiredArgsConstructor
 public class CafeRepository {
 
     @PersistenceContext
-    private final EntityManager em;
+    private EntityManager em;
 
     public Long save(Cafe cafe){
         em.persist(cafe);
